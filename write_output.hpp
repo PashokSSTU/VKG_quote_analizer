@@ -14,8 +14,11 @@ inline void write_candles(const fs::path& dirpath, const std::vector<candles::ca
     fs::directory_entry dir(dirpath);
     if (!dir.exists())
         throw std::runtime_error("Unvalid directory for output candles .csv file!");
+    std::string dirpath_str = dirpath;
+    if (dirpath_str.back() != '/')
+        dirpath_str += "/";
 
-    std::ofstream output(std::string(dirpath) + "candles.csv", std::ios::out);
+    std::ofstream output(dirpath_str + "candles.csv", std::ios::out);
     if (!output.is_open())
         throw std::runtime_error("Can't create candles .csv file!");
 
@@ -40,8 +43,11 @@ inline void write_sma_values(const fs::path& dirpath, const std::vector<double>&
     fs::directory_entry dir(dirpath);
     if (!dir.exists())
         throw std::runtime_error("Unvalid directory for output sma values .csv file!");
+    std::string dirpath_str = dirpath;
+    if (dirpath_str.back() != '/')
+        dirpath_str += "/";
 
-    std::ofstream output(std::string(dirpath) + "sma_values.csv", std::ios::out);
+    std::ofstream output(dirpath_str + "sma_values.csv", std::ios::out);
     if (!output.is_open())
         throw std::runtime_error("Can't create sma values .csv file!");
 
