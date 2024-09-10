@@ -17,3 +17,6 @@ add_executable(quote-analizer
 )
 
 target_link_libraries(quote-analizer cxxopts::cxxopts)
+install(TARGETS quote-analizer
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
