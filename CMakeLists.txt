@@ -11,6 +11,8 @@ add_executable(quote-analizer
     time_helpers.hpp
     quotes_reader.hpp 
     quotes_reader.cpp
+    sma_factory.hpp
+    sma_factory.cpp
     write_output.hpp
 )
 
