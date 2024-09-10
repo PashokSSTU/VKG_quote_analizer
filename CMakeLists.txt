@@ -11,6 +11,7 @@ add_executable(quote-analizer
     time_helpers.hpp
     quotes_reader.hpp 
     quotes_reader.cpp
+    write_output.hpp
 )
 
 target_link_libraries(quote-analizer cxxopts::cxxopts)

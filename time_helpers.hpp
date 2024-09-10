@@ -11,9 +11,12 @@ inline std::chrono::system_clock::time_point time_t_to_time_point(time_t timesta
     return std::chrono::system_clock::from_time_t(timestamp);
 }
 
-inline std::chrono::system_clock::time_point round_to_period(const std::chrono::system_clock::time_point& tp, int period_minutes) {
+inline std::chrono::system_clock::time_point round_to_period(const std::chrono::system_clock::time_point& tp,
+                                                             const std::chrono::system_clock::time_point& start_tp,
+                                                             int period_minutes) {
+    auto start_duration = start_tp.time_since_epoch();
     auto duration = tp.time_since_epoch();
-    auto minutes = std::chrono::duration_cast<std::chrono::minutes>(duration);
+    auto minutes = std::chrono::duration_cast<std::chrono::minutes>(duration - start_duration);
     auto rounded_minutes = (minutes.count() / period_minutes) * period_minutes;
     return std::chrono::system_clock::time_point(std::chrono::minutes(rounded_minutes));
 }
