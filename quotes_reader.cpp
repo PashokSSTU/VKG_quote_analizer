@@ -64,7 +64,7 @@ std::vector<quote> create_quotes_data(const fs::path& input_csv)
         lines_counter++;
     }
 
-    if (lines_counter < MIN_QUOTES && MIN_QUOTES > lines_counter)
+    if (lines_counter < MIN_QUOTES || lines_counter > MAX_QUOTES)
         std::runtime_error("Unvalid count of quotes!");
 
     return result;

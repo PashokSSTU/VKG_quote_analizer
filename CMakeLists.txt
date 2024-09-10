@@ -4,6 +4,13 @@ project(quote-analizer)
 
 find_package(cxxopts REQUIRED)
 
-add_executable(quote-analizer main.cpp quotes_reader.hpp quotes_reader.cpp)
+add_executable(quote-analizer 
+    candles_factory.cpp
+    candles_factory.hpp
+    main.cpp 
+    time_helpers.hpp
+    quotes_reader.hpp 
+    quotes_reader.cpp
+)
 
 target_link_libraries(quote-analizer cxxopts::cxxopts)
